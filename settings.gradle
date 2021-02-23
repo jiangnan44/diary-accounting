@@ -1,0 +1,3 @@
+include ':bindtest'
+include ':app'
+rootProject.name = "DiaryAccounting"

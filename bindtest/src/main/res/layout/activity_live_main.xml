@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewmodel"
+            type="com.v.bindtest.livedata.CupViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".livedata.LiveMainActivity">
+
+        <TextView
+            android:id="@+id/alm_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}"
+            android:padding="20dp"
+            android:text="@{viewmodel.name}"
+            android:textColor="@{viewmodel.color.intValue()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/alm_btn0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}"
+            android:text="#FFBB86FC"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/alm_tv_name" />
+
+        <Button
+            android:id="@+id/alm_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:onClick="@{clickListener}"
+            android:text="#FFEE860C"
+            app:layout_constraintLeft_toRightOf="@id/alm_btn0"
+            app:layout_constraintTop_toBottomOf="@id/alm_tv_name" />
+
+        <Button
+            android:id="@+id/alm_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:onClick="@{clickListener}"
+            android:text="#FF00860C"
+            app:layout_constraintLeft_toRightOf="@id/alm_btn1"
+            app:layout_constraintTop_toBottomOf="@id/alm_tv_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
