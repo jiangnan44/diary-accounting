@@ -1,4 +1,4 @@
-package com.v.accounting
+package com.v.accounting.utils
 
 import android.content.Context
 import android.net.wifi.WifiManager

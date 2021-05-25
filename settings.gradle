@@ -1,3 +1,4 @@
+include ':roomtest'
 include ':bindtest'
 include ':app'
 rootProject.name = "DiaryAccounting"

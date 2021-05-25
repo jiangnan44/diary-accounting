@@ -116,7 +116,7 @@ abstract class LiveAdapter<T, VH : BaseHolder> : RecyclerView.Adapter<VH>, Lifec
         Log.d(TAG, "onResume ")
         Log.d(TAG, "onResume listener $mListChangeListener")
         if (!isUpdateOnPause()) {
-            notifyDataSetChanged()
+            notifyDataSetChanged()//maybe check whether list changed
             addListChangedListener()
         }
     }

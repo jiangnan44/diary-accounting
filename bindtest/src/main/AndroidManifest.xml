@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiaryAccounting">
-        <activity android:name=".livedata.LiveRecyclerViewActivity"></activity>
+        <activity android:name=".livedata.LiveRecyclerViewActivity" />
         <activity android:name=".livedata.LiveMainActivity" />
         <activity android:name=".observable.BindingObservableActivity" />
         <activity android:name=".observable.BindingRecyclerViewActivity" />
