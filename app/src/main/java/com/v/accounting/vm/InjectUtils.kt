@@ -1,6 +1,6 @@
 package com.v.accounting.vm
 
-import com.v.accounting.data.DaoManager
+import com.v.accounting.data.UserDaoM
 import com.v.accounting.data.UserRepository
 
 /**
@@ -9,7 +9,7 @@ import com.v.accounting.data.UserRepository
  */
 object InjectUtils {
     fun provideUserVMFactory(): UserViewModelFactory {
-        val repository = UserRepository.getInstance(DaoManager.getInstance().userDao)
+        val repository = UserRepository.getInstance(UserDaoM.getInstance().userDao)
         return UserViewModelFactory(repository)
     }
 }

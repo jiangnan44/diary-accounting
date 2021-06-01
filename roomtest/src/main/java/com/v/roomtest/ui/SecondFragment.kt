@@ -50,11 +50,12 @@ class SecondFragment : Fragment() {
         etAge = view.findViewById(R.id.et_age)
 
         val rv: RecyclerView = view.findViewById(R.id.rv_users)
+        adapter = CunningAdapter(null)
         rv.let {
             it.layoutManager = LinearLayoutManager(context).apply {
-                orientation = LinearLayoutManager.HORIZONTAL
+                orientation = LinearLayoutManager.VERTICAL
             }
-            adapter = CunningAdapter(null)
+            it.adapter = adapter
         }
 
 
@@ -68,9 +69,9 @@ class SecondFragment : Fragment() {
 
 
     private fun initAdd(view: View) {
-        //add user
+
         view.findViewById<Button>(R.id.btn_add_user).setOnClickListener {
-            Log.d(TAG,"add user")
+            Log.d(TAG, "add user")
             val name = etName.text.toString().trim()
             if (name.isEmpty()) {
                 Snackbar.make(it, "plz input name,at least", Snackbar.LENGTH_SHORT).show()
@@ -91,7 +92,7 @@ class SecondFragment : Fragment() {
 
 
     private fun initUpdate(view: View) {
-        //add user
+
         view.findViewById<Button>(R.id.btn_update_user).setOnClickListener {
             if (adapter.currentSelectedUser == null) {
                 Snackbar.make(it, "plz select a user to update", Snackbar.LENGTH_SHORT).show()
@@ -112,13 +113,15 @@ class SecondFragment : Fragment() {
                 (Math.random() * 100).toInt()
             }
 
-            val user = User(name, age, 0, name.plus(age))
+            val user = User(name, age, 0, name.plus(age)).apply {
+                id = adapter.currentSelectedUser!!.id//note this!!
+            }
             CunningDbManager.updateUser(it.context, user)
         }
     }
 
     private fun initQuery(view: View) {
-        //add user
+
         view.findViewById<Button>(R.id.btn_query_user).setOnClickListener {
 
             val name = etName.text.toString().trim()
@@ -138,7 +141,7 @@ class SecondFragment : Fragment() {
 
 
     private fun initQueryAll(view: View) {
-        //add user
+
         view.findViewById<Button>(R.id.btn_query_all).setOnClickListener {
 
 
@@ -153,7 +156,7 @@ class SecondFragment : Fragment() {
     }
 
     private fun initDelete(view: View) {
-        //add user
+
         view.findViewById<Button>(R.id.btn_del_user).setOnClickListener {
 
             if (adapter.currentSelectedUser == null) {
@@ -198,24 +201,29 @@ class CunningAdapter : RecyclerView.Adapter<CunningViewHolder> {
     }
 
     private fun getItemView(context: Context): View {
-        return TextView(context).apply {
-            layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
-            layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
-            setTextColor(Color.parseColor("#666666"))
-            setPadding(50)
+        return TextView(context).also {
+            it.layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            it.setTextColor(Color.parseColor("#666666"))
+            it.setPadding(50)
         }
     }
 
     override fun onBindViewHolder(holder: CunningViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {
-            currentSelectedUser = users[position]
+        val tv = holder.itemView as TextView
+        val u = users[position]
+        tv.setOnClickListener {
+            currentSelectedUser = u
             Snackbar.make(it, "select ${currentSelectedUser?.name}", Snackbar.LENGTH_SHORT).show()
             it.setBackgroundColor(Color.parseColor("#55555555"))
             lastSelect = position
         }
-
+        val txt = "name:${u.name} age:${u.age} id:${u.id}"
+        tv.text = txt
         if (position == lastSelect) {
-            holder.itemView.background = null
+            tv.background = null
         }
     }
 

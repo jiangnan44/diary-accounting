@@ -25,18 +25,20 @@ interface UserDao {
     @Query("select * from users where name=:name")
     fun findUserByName(name: String): User?
 
-    @Insert
-    fun insertAll(vararg users: User)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(vararg users: User): List<Long>
 
     @Insert
-    fun insert(user: User)
+    fun insert(user: User): Long
 
     @Update
     fun update(user: User)
 
+    @Update
+    suspend fun updateUsers(vararg users: User): Int
 
     @Delete
-    fun delete(vararg user: User)
+    suspend fun delete(vararg user: User): Int
 
     @Query("delete from users where id=:id")
     fun deleteById(id: Int)
@@ -44,6 +46,8 @@ interface UserDao {
     @Query("delete from users")
     fun deleteAllUser()
 
+    @Query("select * from users where age > :minAge")
+    fun loadAllUsersOlderThan(minAge: Int): Array<User>
 }
 
 

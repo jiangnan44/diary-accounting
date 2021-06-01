@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.v.roomtest.R
+import com.v.roomtest.data.CunningDbManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,5 +36,10 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onDestroy() {
+        CunningDbManager.getInstance(this).close()
+        super.onDestroy()
     }
 }

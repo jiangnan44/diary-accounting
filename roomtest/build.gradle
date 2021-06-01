@@ -16,6 +16,14 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+
+            }
+        }
     }
 
     buildTypes {
@@ -43,7 +51,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
 
-    def room_version = "2.3.0"
+//    https://developer.android.google.cn/training/data-storage/room
+    def room_version = "2.4.0-alpha01"
     implementation "androidx.room:room-runtime:$room_version"
     // To use Kotlin annotation processing tool (kapt)
     kapt "androidx.room:room-compiler:$room_version"

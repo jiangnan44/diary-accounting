@@ -1,7 +1,6 @@
 package com.v.roomtest.data
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.Log
 import androidx.room.Room
 
@@ -30,7 +29,7 @@ class CunningDbManager private constructor() {
         @JvmStatic
         fun addUser(user: User, context: Context) {
             synchronized(this) {
-                Log.d(TAG,"add user $user")
+                Log.d(TAG, "add user $user")
                 getInstance(context.applicationContext).userDao().insert(user)
             }
         }
@@ -60,6 +59,9 @@ class CunningDbManager private constructor() {
             synchronized(this) {
                 return getInstance(context.applicationContext).userDao().allUser
             }
+        }
+
+        fun test(context: Context) {
         }
     }
 

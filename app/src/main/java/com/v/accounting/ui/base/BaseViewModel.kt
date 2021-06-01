@@ -1,4 +1,4 @@
-package com.v.accounting.vm
+package com.v.accounting.ui.base
 
 import androidx.lifecycle.ViewModel
 

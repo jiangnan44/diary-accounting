@@ -2,19 +2,16 @@ package com.v.accounting.ui
 
 import android.text.TextUtils
 import android.widget.Toast
-import androidx.core.view.children
-import androidx.core.view.get
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.v.accounting.R
 import com.v.accounting.data.User
 import com.v.accounting.databinding.ActivityAddAuthorBinding
+import com.v.accounting.ui.base.BaseVMActivity
 import com.v.accounting.utils.ToastManager
 import com.v.accounting.vm.InjectUtils
 import com.v.accounting.vm.UserViewModel
 
-class AddAuthorActivity : BaseActivity() {
+class AddAuthorActivity : BaseVMActivity() {
     private lateinit var binding: ActivityAddAuthorBinding
     private lateinit var vm: UserViewModel
 
@@ -22,7 +19,7 @@ class AddAuthorActivity : BaseActivity() {
     override fun initView() {
         binding = setContentViewWithBinding(
             R.layout.activity_add_author,
-            ActivityAddAuthorBinding::class.java
+            ActivityAddAuthorBinding::class
         )
         binding.btnSave.setOnClickListener {
             addUser()
@@ -54,7 +51,7 @@ class AddAuthorActivity : BaseActivity() {
     private fun getGender(): Byte {
         val id = binding.rgGender.checkedRadioButtonId
         for (i in 0 until binding.rgGender.childCount) {
-            if (binding.rgGender[i].id == id) {
+            if (binding.rgGender.getChildAt(i).id == id) {
                 return i.toByte()
             }
         }
