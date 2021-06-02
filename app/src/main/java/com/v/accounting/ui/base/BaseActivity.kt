@@ -27,6 +27,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun initActivity(){
         setContentView(getContentLayoutId())
+        initView()
         initToolbar()
         initData()
     }
@@ -79,6 +80,7 @@ abstract class BaseActivity : AppCompatActivity() {
         mToolbar?.setNavigationOnClickListener(listener)
     }
 
+    abstract fun initView()
     open fun getContentLayoutId(): Int = 0
     open fun initData() {}
 }

@@ -10,7 +10,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         tools:context=".ui.launch.LaunchActivity">
 
         <ImageView
@@ -18,18 +17,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/open_ad" />
+            android:src="@drawable/img_open_ad" />
 
         <TextView
             android:id="@+id/tv_skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/bg_btn_skip_count"
             android:gravity="center"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="4dp"
             android:text="skip in 3 sec"
             android:textColor="@color/white"
             android:textSize="13sp"

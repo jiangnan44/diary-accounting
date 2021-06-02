@@ -1,8 +1,6 @@
 package com.v.accounting.ui.base
 
-import android.os.Bundle
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import kotlin.reflect.KClass
@@ -19,7 +17,7 @@ abstract class BaseVMActivity : BaseActivity() {
         initVM()
     }
 
-    abstract fun initView()
+
     abstract fun initVM()
 
     fun <T : ViewDataBinding> setContentViewWithBinding(@LayoutRes id: Int, clazz: KClass<T>): T {

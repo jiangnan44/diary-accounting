@@ -1,23 +1,33 @@
 package com.v.accounting.ui
 
+import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.v.accounting.R
-import com.v.accounting.databinding.ActivityMainBinding
-import com.v.accounting.ui.base.BaseVMActivity
-import com.v.accounting.utils.CommonUtil
+import com.v.accounting.ui.base.BaseActivity
 
-class MainActivity : BaseVMActivity() {
+class MainActivity : BaseActivity() {
 
+    override fun getContentLayoutId(): Int {
+        return R.layout.activity_main
+    }
 
     override fun initView() {
-        val binding = setContentViewWithBinding(R.layout.activity_main, ActivityMainBinding::class)
-        binding.tvHint.setOnClickListener {
-            CommonUtil.go2Activity(this, AddAuthorActivity::class.java)
+        val navView: BottomNavigationView = findViewById(R.id.bnv_main)
+        val navController = findNavController(R.id.nav_host_main)
+        navView.setupWithNavController(navController)
+//        testBadgeView(navView)
+    }
+
+
+    private fun testBadgeView(navView: BottomNavigationView) {
+        navView.getOrCreateBadge(R.id.nav_mine).run {
+            number = 100
+            maxCharacterCount = 3
+            verticalOffset = 20
+            backgroundColor = ContextCompat.getColor(this@MainActivity, R.color.purple_200)
         }
-    }
-
-    override fun initVM() {
 
     }
-
-
 }

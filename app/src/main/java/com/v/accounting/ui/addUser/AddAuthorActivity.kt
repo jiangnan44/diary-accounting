@@ -1,4 +1,4 @@
-package com.v.accounting.ui
+package com.v.accounting.ui.addUser
 
 import android.text.TextUtils
 import android.widget.Toast
