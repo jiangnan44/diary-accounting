@@ -1,15 +1,23 @@
 package com.v.accounting.data
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
+
 /**
  * Author:v
  * Time:2021/5/20
  */
+@Entity
 data class User(
-    val name: String,
-    val id: Int
+    val name: String
 ) {
+    @PrimaryKey(autoGenerate = true)
+    var id = 0
     var phone: String? = null
     var gender: Byte = 0
+
+    @Ignore
     var avatar: String? = null
 
     override fun toString(): String {

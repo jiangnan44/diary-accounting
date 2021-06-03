@@ -1,5 +1,6 @@
 package com.v.accounting.di
 
+import com.v.accounting.ui.addUser.AddUserViewModel
 import com.v.accounting.ui.home.HomeViewModel
 import com.v.accounting.ui.mine.MineViewModel
 import com.v.accounting.ui.statistic.StatisticViewModel
@@ -14,4 +15,5 @@ val viewModelsModule = module {
     viewModel { HomeViewModel() }
     viewModel { StatisticViewModel() }
     viewModel { MineViewModel() }
+    viewModel { AddUserViewModel() }
 }

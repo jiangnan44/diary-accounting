@@ -1,7 +1,8 @@
-package com.v.accounting.data
+package com.v.accounting.database
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.v.accounting.data.User
 
 /**
  * Author:v

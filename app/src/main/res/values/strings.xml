@@ -5,4 +5,11 @@
     <string name="title_statistic">Statistic</string>
     <string name="title_mine">Mine</string>
 
+
+    <!--    database-->
+    <string name="db_name">account.db</string>
+
+
+    <!--    database-->
+
 </resources>

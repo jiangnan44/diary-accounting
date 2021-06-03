@@ -6,23 +6,62 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_mine"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="150dp"
+            android:paddingTop="25dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/ctl_Test"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:collapsedTitleTextAppearance="@style/AppTheme.CollapsedTitleStyle"
+                app:contentScrim="@color/pink_300"
+                app:expandedTitleMarginBottom="15dp"
+                app:expandedTitleTextAppearance="@style/AppTheme.ExpandedTitleStyle"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@id/toolbar">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_collapseMode="pin"
+                    app:title="@string/app_name"
+                    app:titleMarginStart="80dp"
+                    app:titleTextColor="@color/white" />
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="30dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_default_avatar"
+                    app:layout_collapseMode="pin" />
+
+                <View
+                    android:id="@+id/v_name"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="start|bottom"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="10dp" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

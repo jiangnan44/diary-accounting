@@ -1,6 +1,7 @@
 package com.v.accounting.data
 
 import androidx.lifecycle.LiveData
+import com.v.accounting.database.UserDao
 
 /**
  * Author:v
