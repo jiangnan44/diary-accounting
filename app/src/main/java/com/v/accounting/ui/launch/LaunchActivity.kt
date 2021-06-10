@@ -17,7 +17,7 @@ class LaunchActivity : BaseVMActivity() {
 
         val binding =
             setContentViewWithBinding(R.layout.activity_launch, ActivityLaunchBinding::class)
-        binding.ivAds.setOnClickListener {
+        binding.ivAds.setOnClickListener() {
             ToastManager.showShort(this, "click ads")
         }
 

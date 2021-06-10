@@ -2,20 +2,19 @@ package com.v.accounting.ui.addUser
 
 import android.text.TextUtils
 import android.view.View
-import android.widget.Toast
 import com.v.accounting.R
-import com.v.accounting.data.User
 import com.v.accounting.databinding.FragmentAddAuthorBinding
 import com.v.accounting.ui.base.BaseVMFragment
+import com.v.accounting.ui.vm.UserViewModel
 import com.v.accounting.utils.ToastManager
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Author:v
  * Time:2021/6/3
  */
 class AddUserFragment : BaseVMFragment<FragmentAddAuthorBinding>() {
-
-
+    val viewModel: UserViewModel by viewModel()
 
     override fun getRootViewId(): Int {
         return R.layout.fragment_add_author

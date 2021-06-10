@@ -2,7 +2,7 @@ package com.v.accounting.di
 
 import androidx.room.Room
 import com.v.accounting.R
-import com.v.accounting.database.AccountDatabase
+import com.v.accounting.db.AccountDb
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -15,7 +15,7 @@ val databaseModule = module {
         Room
             .databaseBuilder(
                 androidApplication(),
-                AccountDatabase::class.java,
+                AccountDb::class.java,
                 androidApplication().getString(R.string.db_name)
             )
             .allowMainThreadQueries()
@@ -23,6 +23,6 @@ val databaseModule = module {
             .build()
     }
     single(createdAtStart = false) {
-        get<AccountDatabase>().userDao()
+        get<AccountDb>().userDao()
     }
 }

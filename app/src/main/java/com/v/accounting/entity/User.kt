@@ -1,4 +1,4 @@
-package com.v.accounting.data
+package com.v.accounting.entity
 
 import androidx.room.Entity
 import androidx.room.Ignore

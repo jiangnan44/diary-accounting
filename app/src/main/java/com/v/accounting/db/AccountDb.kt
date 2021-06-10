@@ -1,8 +1,8 @@
-package com.v.accounting.database
+package com.v.accounting.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.v.accounting.data.User
+import com.v.accounting.entity.User
 
 /**
  * Author:v
@@ -13,6 +13,6 @@ import com.v.accounting.data.User
     entities = [User::class],
     exportSchema = true
 )
-abstract class AccountDatabase : RoomDatabase() {
+abstract class AccountDb : RoomDatabase() {
     abstract fun userDao(): UserDao
 }
