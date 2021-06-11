@@ -4,6 +4,13 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.v.accounting.ui.mine.MineViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.v.accounting.ui.mine.MineAdapter" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -13,6 +20,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:background="?attr/colorPrimaryVariant"
             android:paddingTop="25dp">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -20,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:collapsedTitleTextAppearance="@style/AppTheme.CollapsedTitleStyle"
-                app:contentScrim="@color/pink_300"
+                app:contentScrim="?attr/colorPrimary"
                 app:expandedTitleMarginBottom="15dp"
                 app:expandedTitleTextAppearance="@style/AppTheme.ExpandedTitleStyle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -42,6 +50,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="start|center_vertical"
                     android:layout_marginStart="30dp"
+                    android:onClick="@{vm::toAddUser}"
                     android:padding="5dp"
                     android:src="@drawable/ic_default_avatar"
                     app:layout_collapseMode="pin" />
@@ -52,7 +61,8 @@
                     android:layout_height="30dp"
                     android:layout_gravity="start|bottom"
                     android:layout_marginStart="30dp"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:onClick="@{vm::toAddUser}" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
@@ -61,6 +71,7 @@
             android:id="@+id/rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:adapter="@{adapter}"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

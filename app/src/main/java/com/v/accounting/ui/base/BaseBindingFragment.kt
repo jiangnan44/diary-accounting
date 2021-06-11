@@ -13,8 +13,8 @@ import kotlin.reflect.KClass
  * Author:v
  * Time:2021/6/2
  */
-abstract class BaseVMFragment<T : ViewDataBinding> : BaseFragment() {
-    protected lateinit var binding: T
+abstract class BaseBindingFragment<B : ViewDataBinding> : BaseFragment() {
+    protected var binding: B? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,11 +23,20 @@ abstract class BaseVMFragment<T : ViewDataBinding> : BaseFragment() {
     ): View? {
 
         binding =
-            (DataBindingUtil.inflate(inflater, getRootViewId(), container, false) as T).apply {
+            (DataBindingUtil.inflate(inflater, getRootViewId(), container, false) as B).apply {
                 lifecycleOwner = viewLifecycleOwner
             }
-        return binding.root
+        return binding!!.root
     }
 
+
+    protected inline fun bindingViewModel(block: B.() -> Unit) {
+        binding?.apply(block)
+    }
+
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
+    }
 
 }

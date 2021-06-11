@@ -31,9 +31,9 @@ fun Activity.hideSystemBar(view: View) {
             addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             statusBarColor = Color.TRANSPARENT
         }
-    } else controller.let {
-        it.systemBarsBehavior =
+    } else controller.run {
+        systemBarsBehavior =
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        it.hide(WindowInsetsCompat.Type.systemBars())
+        hide(WindowInsetsCompat.Type.systemBars())
     }
 }

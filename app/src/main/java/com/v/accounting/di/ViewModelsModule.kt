@@ -15,5 +15,5 @@ val viewModelsModule = module {
     viewModel { HomeViewModel() }
     viewModel { StatisticViewModel() }
     viewModel { MineViewModel() }
-    viewModel { UserViewModel() }
+    viewModel { UserViewModel(get()) }
 }

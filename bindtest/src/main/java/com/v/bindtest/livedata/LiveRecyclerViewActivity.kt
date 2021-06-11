@@ -54,6 +54,7 @@ class LiveRecyclerViewActivity : AppCompatActivity() {
         }
 
 
+        //put those click logic in viewmodel,here i just lazy,@See app module
         binding.clickListener = View.OnClickListener {
             when (it!!.id) {
                 R.id.alr_btn_add -> {
@@ -103,7 +104,7 @@ class LiveRecyclerViewActivity : AppCompatActivity() {
             }
         })
 
-
+        //put those click logic in viewmodel,here i just lazy
         binding.clickListener = View.OnClickListener {
             when (it!!.id) {
                 R.id.alr_btn_add -> {

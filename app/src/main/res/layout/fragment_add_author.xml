@@ -9,24 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".ui.addUser.AddAuthorActivity">
 
-        <TextView
-            android:id="@+id/tv_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/purple_200"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="100dp"
-            android:background="@color/teal_200"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_number" />
+        <include layout="@layout/view_toolbar" />
 
 
         <ImageView
@@ -34,11 +17,11 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_number" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <Button
             android:id="@+id/btn_save"
@@ -90,56 +73,64 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_phone" />
 
-        <RadioGroup
-            android:id="@+id/rg_gender"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="50dp"
             android:orientation="vertical"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_phone">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:checked="true"
-                android:text="male" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:text="female" />
+            <RadioGroup
+                android:id="@+id/rg_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="90dp"
+                android:orientation="vertical">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:text="mtf" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:text="male" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:text="ftm" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:text="female" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:text="gender-queer" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:text="mtf" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:text="non-binary" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:text="ftm" />
 
-        </RadioGroup>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:text="gender-queer" />
 
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:text="non-binary" />
+
+            </RadioGroup>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

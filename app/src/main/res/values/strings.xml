@@ -4,6 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_statistic">Statistic</string>
     <string name="title_mine">Mine</string>
+    <string name="title_add_user">AddUser</string>
 
 
     <!--    database-->

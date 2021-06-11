@@ -7,10 +7,10 @@ import com.v.accounting.databinding.ActivityLaunchBinding
 import com.v.accounting.extension.go2Activity
 import com.v.accounting.extension.hideSystemBar
 import com.v.accounting.ui.MainActivity
-import com.v.accounting.ui.base.BaseVMActivity
+import com.v.accounting.ui.base.BaseBindingActivity
 import com.v.accounting.utils.ToastManager
 
-class LaunchActivity : BaseVMActivity() {
+class LaunchActivity : BaseBindingActivity() {
     private var counter = if (BuildConfig.DEBUG) 1 else 3
 
     override fun initView() {

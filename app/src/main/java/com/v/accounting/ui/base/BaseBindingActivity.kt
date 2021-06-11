@@ -9,7 +9,7 @@ import kotlin.reflect.KClass
  * Author:v
  * Time:2021/5/20
  */
-abstract class BaseVMActivity : BaseActivity() {
+abstract class BaseBindingActivity : BaseActivity() {
 
     override fun initActivity() {
         initView()
@@ -22,7 +22,7 @@ abstract class BaseVMActivity : BaseActivity() {
 
     fun <T : ViewDataBinding> setContentViewWithBinding(@LayoutRes id: Int, clazz: KClass<T>): T {
         return (DataBindingUtil.setContentView(this, id) as T).apply {
-            lifecycleOwner = this@BaseVMActivity
+            lifecycleOwner = this@BaseBindingActivity
         }
     }
 }
