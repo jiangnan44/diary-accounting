@@ -7,10 +7,10 @@
     <string name="title_add_user">AddUser</string>
 
 
-    <!--    database-->
+    <!--    database  start-->
     <string name="db_name">account.db</string>
 
 
-    <!--    database-->
+    <!--    database end-->
 
 </resources>

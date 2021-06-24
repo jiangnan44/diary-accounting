@@ -6,11 +6,12 @@
 
         <variable
             name="vm"
-            type="com.v.accounting.ui.mine.MineViewModel" />
+            type="com.v.accounting.ui.vm.UserViewModel" />
 
         <variable
             name="adapter"
             type="com.v.accounting.ui.mine.MineAdapter" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -32,6 +33,7 @@
                 app:expandedTitleMarginBottom="15dp"
                 app:expandedTitleTextAppearance="@style/AppTheme.ExpandedTitleStyle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@{vm.author.name}"
                 app:toolbarId="@id/toolbar">
 
 
@@ -40,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     app:layout_collapseMode="pin"
-                    app:title="@string/app_name"
+                    app:title="@{vm.author.name}"
                     app:titleMarginStart="80dp"
                     app:titleTextColor="@color/white" />
 

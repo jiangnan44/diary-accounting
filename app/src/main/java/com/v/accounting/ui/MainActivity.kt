@@ -17,6 +17,7 @@ class MainActivity : BaseActivity() {
         val navView: BottomNavigationView = findViewById(R.id.bnv_main)
         val navController = findNavController(R.id.nav_host_main)
         navView.setupWithNavController(navController)
+
 //        testBadgeView(navView)
     }
 

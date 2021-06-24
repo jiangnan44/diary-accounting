@@ -34,6 +34,7 @@ class LaunchActivity : BaseBindingActivity() {
         }
     }
 
+    //use handler in real project,here I just lazy
     private fun startCounter(tvSkip: TextView) {
         if (counter == 0) {
             go2Activity(MainActivity::class)

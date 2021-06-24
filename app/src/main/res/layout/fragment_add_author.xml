@@ -3,8 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="vm"
+            type="com.v.accounting.ui.vm.UserViewModel" />
+    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        toast="@{vm.toast}"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.addUser.AddAuthorActivity">
@@ -18,6 +26,7 @@
             android:layout_height="60dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="30dp"
+            android:onClick="@{()->vm.chooseAvatar(ivAvatar)}"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:background="@null"
+            android:onClick="@{()->vm.saveUserClick(etName,etPhone)}"
             android:text="Save"
             android:textColor="@color/purple_700"
             android:textSize="15sp"
@@ -80,6 +90,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="50dp"
             android:orientation="vertical"
+            android:overScrollMode="never"
             android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -89,10 +100,11 @@
 
             <RadioGroup
                 android:id="@+id/rg_gender"
+                checkedChangeListener="@{vm.radioGender}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="90dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="90dp">
 
                 <RadioButton
                     android:layout_width="wrap_content"

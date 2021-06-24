@@ -1,6 +1,7 @@
 package com.v.accounting.binding
 
 import android.view.View
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.v.accounting.utils.ToastManager
 
@@ -17,6 +18,7 @@ object ViewBinding {
             ToastManager.showShort(view.context, it)
         }
     }
+
 
 }
 

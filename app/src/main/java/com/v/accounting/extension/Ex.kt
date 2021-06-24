@@ -11,6 +11,8 @@ import android.view.WindowManager
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
 import kotlin.reflect.KClass
 
 /**
@@ -36,4 +38,9 @@ fun Activity.hideSystemBar(view: View) {
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         hide(WindowInsetsCompat.Type.systemBars())
     }
+}
+
+
+fun Any?.isNotNull(): Boolean {
+    return this != null
 }

@@ -1,9 +1,11 @@
 package com.v.accounting.ui.mine
 
+import android.util.Log
 import android.view.View
 import com.v.accounting.R
 import com.v.accounting.databinding.FragmentMineBinding
 import com.v.accounting.ui.base.BaseBindingFragment
+import com.v.accounting.ui.vm.UserViewModel
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -21,8 +23,9 @@ class MineFragment : BaseBindingFragment<FragmentMineBinding>() {
             vm = getViewModel()
             adapter = MineAdapter()
         }
-
     }
+
+
 
 
 }

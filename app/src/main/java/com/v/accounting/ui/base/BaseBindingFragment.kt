@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
+import com.v.accounting.utils.ToastManager
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 import kotlin.reflect.KClass
 
 /**
@@ -28,6 +32,8 @@ abstract class BaseBindingFragment<B : ViewDataBinding> : BaseFragment() {
             }
         return binding!!.root
     }
+
+
 
 
     protected inline fun bindingViewModel(block: B.() -> Unit) {

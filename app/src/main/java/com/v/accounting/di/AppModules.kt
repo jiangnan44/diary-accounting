@@ -8,6 +8,7 @@ package com.v.accounting.di
 val appModules = listOf(
     databaseModule,
     networkModule,
-    viewModelsModule
+    viewModelsModule,
+    repositoryModel
 )
 
