@@ -1,5 +1,6 @@
 package com.v.accounting.ui
 
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -17,7 +18,6 @@ class MainActivity : BaseActivity() {
         val navView: BottomNavigationView = findViewById(R.id.bnv_main)
         val navController = findNavController(R.id.nav_host_main)
         navView.setupWithNavController(navController)
-
 //        testBadgeView(navView)
     }
 
@@ -29,6 +29,5 @@ class MainActivity : BaseActivity() {
             verticalOffset = 20
             backgroundColor = ContextCompat.getColor(this@MainActivity, R.color.purple_200)
         }
-
     }
 }

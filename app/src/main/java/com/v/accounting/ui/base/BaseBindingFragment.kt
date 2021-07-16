@@ -35,8 +35,7 @@ abstract class BaseBindingFragment<B : ViewDataBinding> : BaseFragment() {
 
 
 
-
-    protected inline fun bindingViewModel(block: B.() -> Unit) {
+    protected inline fun bindingApply(block: B.() -> Unit) {
         binding?.apply(block)
     }
 

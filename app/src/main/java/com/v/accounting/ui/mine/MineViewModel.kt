@@ -1,4 +1,4 @@
-package com.v.accounting.ui.vm
+package com.v.accounting.ui.mine
 
 import android.app.Application
 import android.net.Uri
@@ -10,27 +10,33 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
-import androidx.navigation.findNavController
-import com.v.accounting.App
 import com.v.accounting.BR
 import com.v.accounting.R
 import com.v.accounting.entity.User
 import com.v.accounting.repository.UserRepository
 import com.v.accounting.ui.base.BaseViewModel
+import com.v.accounting.utils.Constant
 
 /**
  * Author:v
  * Time:2021/6/3
  */
-class UserViewModel(
+class MineViewModel(
     private val app: Application,
     private val userRepository: UserRepository
 ) : BaseViewModel() {
-    private val TAG = "UserViewModel"
+    private val TAG = "MineViewModel"
 
     private var avatarUri: Uri? = null
     val radioGender: MutableLiveData<Byte> by lazy { MutableLiveData(0) }
 
+
+    private val _navigateUp = MutableLiveData<Boolean?>()
+    val navigateUp: LiveData<Boolean?> = _navigateUp
+
+
+    private val _navigate2Add = MutableLiveData<Boolean?>()
+    val navigate2Add: LiveData<Boolean?> = _navigate2Add
 
     var toast: String? = null
         @Bindable get
@@ -58,13 +64,17 @@ class UserViewModel(
         )?.let { user ->
             launchOnViewModelScope {
                 toast = if (userRepository.addUser(user)) {
-                    etName.findNavController().navigateUp()
+                    _navigateUp.value = true
                     "Add User Success!"
                 } else {
                     "Error when add user to database"
                 }
             }
         }
+    }
+
+    fun onNavigateUpDone() {
+        _navigateUp.value = null
     }
 
     private fun prepareUser(name: String?, phone: String?): User? {
@@ -86,8 +96,14 @@ class UserViewModel(
 
 
     fun toAddUser(view: View) {
-        view.findNavController()
-            .navigate(R.id.nav_action_mine_to_add_user)
+        _navigate2Add.value = true
+//        although we should not code like below according to mvvm rule, but in production app,it's very convenient
+//        view.findNavController()
+//            .navigate(R.id.nav_action_mine_to_add_user)
+    }
+
+    fun onNavigate2AddDone() {
+        _navigate2Add.value = null
     }
 
 

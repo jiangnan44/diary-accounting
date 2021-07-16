@@ -1,5 +1,6 @@
 package com.v.accounting.ui.launch
 
+import android.util.Log
 import android.widget.TextView
 import com.v.accounting.BuildConfig
 import com.v.accounting.R

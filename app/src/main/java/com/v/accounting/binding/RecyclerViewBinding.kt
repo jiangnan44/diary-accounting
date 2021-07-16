@@ -12,30 +12,26 @@ object RecyclerViewBinding {
 
     @JvmStatic
     @BindingAdapter("adapter")
-    fun bindAdapter(view: RecyclerView, baseAdapter: RecyclerView.Adapter<*>) {
-        view.run {
-            adapter = baseAdapter
-            layoutManager = LinearLayoutManager(context).also { llm ->
-                llm.orientation = LinearLayoutManager.VERTICAL
-            }
+    fun RecyclerView.bindAdapter(baseAdapter: RecyclerView.Adapter<*>) {
+        adapter = baseAdapter
+        layoutManager = LinearLayoutManager(context).also { llm ->
+            llm.orientation = LinearLayoutManager.VERTICAL
         }
     }
 
     @JvmStatic
     @BindingAdapter("adapter", "isVertical", "itemDecoration", requireAll = true)
-    fun bindAdapterWithDecor(
-        view: RecyclerView, baseAdapter: RecyclerView.Adapter<*>,
+    fun RecyclerView.bindAdapterWithDecor(
+        baseAdapter: RecyclerView.Adapter<*>,
         isVertical: Boolean = true, decor: RecyclerView.ItemDecoration?
     ) {
-        view.run {
-            adapter = baseAdapter
-            layoutManager = LinearLayoutManager(context).also { llm ->
-                llm.orientation =
-                    if (isVertical) LinearLayoutManager.VERTICAL else LinearLayoutManager.HORIZONTAL
-            }
-            decor?.let {
-                addItemDecoration(it)
-            }
+        adapter = baseAdapter
+        layoutManager = LinearLayoutManager(context).also { llm ->
+            llm.orientation =
+                if (isVertical) LinearLayoutManager.VERTICAL else LinearLayoutManager.HORIZONTAL
+        }
+        decor?.let {
+            addItemDecoration(it)
         }
     }
 }

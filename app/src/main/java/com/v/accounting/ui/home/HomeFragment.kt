@@ -1,6 +1,7 @@
 package com.v.accounting.ui.home
 
 import android.view.View
+import android.widget.Toast
 import com.v.accounting.R
 import com.v.accounting.databinding.FragmentHomeBinding
 import com.v.accounting.ui.base.BaseBindingFragment
@@ -21,6 +22,7 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>() {
     override fun initView(root: View) {
 
         binding?.tvHome?.text = "home fragment"
+
 
     }
 

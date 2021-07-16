@@ -1,23 +1,22 @@
-package com.v.accounting.ui.addUser
+package com.v.accounting.ui.mine
 
 import android.widget.EditText
 import android.widget.RadioGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 /**
  * Author:v
  * Time:2021/6/15
  */
-object AddUserBindingAdapters {
+object MineBindingAdapters {
 
 
     @JvmStatic
     @BindingAdapter("textChangeListener")
-    fun addTextChangeListener(et: EditText, liveText: MutableLiveData<String>) {
-        et.addTextChangedListener { txt ->
+    fun EditText.addTextChangeListener(liveText: MutableLiveData<String>) {
+        addTextChangedListener { txt ->
             val t = txt?.toString()
             if (t != liveText.value.toString()) {
                 liveText.value = t
@@ -28,14 +27,15 @@ object AddUserBindingAdapters {
 
     @JvmStatic
     @BindingAdapter("checkedChangeListener")
-    fun addRadioChangeListener(rg: RadioGroup, liveData: MutableLiveData<Byte>) {
-        rg.setOnCheckedChangeListener { _, checkedId ->
-            for (i in 0 until rg.childCount) {
-                if (rg.getChildAt(i).id == checkedId) {
+    fun RadioGroup.addRadioChangeListener(liveData: MutableLiveData<Byte>) {
+        setOnCheckedChangeListener { _, checkedId ->
+            for (i in 0 until childCount) {
+                if (getChildAt(i).id == checkedId) {
                     liveData.value = i.toByte()
                 }
             }
         }
     }
+
 
 }
